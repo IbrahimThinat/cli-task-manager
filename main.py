@@ -20,7 +20,7 @@ def list_tasks():
     print("\nYour Tasks:")
     for t in tasks:
         status = "[x]" if t["status"] == "done" else "[ ]"
-        print(f"{t['id']}. {status} {t['title']}")
+        print("VERSION A")
     print()
 
 def main():
