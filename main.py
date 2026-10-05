@@ -1,3 +1,5 @@
+
+# TODO: Refactor storage functions
 import sys
 from storage import load_tasks, save_tasks
 
