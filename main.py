@@ -25,7 +25,7 @@ def list_tasks():
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python main.py [add <title> | list]")
+        print("HELP")
         return
 
     command = sys.argv[1].lower()
