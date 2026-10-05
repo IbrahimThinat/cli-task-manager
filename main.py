@@ -20,12 +20,22 @@ def list_tasks():
     print("\nYour Tasks:")
     for t in tasks:
         status = "[x]" if t["status"] == "done" else "[ ]"
-        print("VERSION A")
+        print(f"{t['id']}. {status} {t['title']}")
     print()
+
+def complete_task(task_id):
+    tasks = load_tasks()
+    for t in tasks:
+        if t["id"] == task_id:
+            t["status"] = "done"
+            save_tasks(tasks)
+            print(f"Marked task #{task_id} as completed!")
+            return
+    print(f"Task #{task_id} not found.")
 
 def main():
     if len(sys.argv) < 2:
-        print("Usage: python main.py [add <title> | list]")
+        print("Usage: python main.py [add <title> | list | complete <id>]")
         return
 
     command = sys.argv[1].lower()
@@ -34,9 +44,14 @@ def main():
         add_task(title)
     elif command == "list":
         list_tasks()
+    elif command == "complete" and len(sys.argv) > 2:
+        try:
+            task_id = int(sys.argv[2])
+            complete_task(task_id)
+        except ValueError:
+            print("Error: Task ID must be a number.")
     else:
-        print("Unknown or incomplete command.") 
+        print("Unknown or incomplete command.")
 
 if __name__ == "__main__":
     main()
-        
