@@ -54,4 +54,9 @@ def main():
         print("Unknown or incomplete command.")
 
 if __name__ == "__main__":
+<<<<<<< HEAD
     main()
+=======
+    main()
+        
+>>>>>>> 2c6d07e (resolve conflict between format a and foramt b)
