@@ -15,25 +15,18 @@ def print_menu():
 
 
 def main():
-    notes = []
-    while True:
-        print_menu()
-        choice = input("Choose an option: ").strip()
+    if len(sys.argv) < 2:
+        print("Usage: python main.py [add <title> | list]")
+        return
 
-        if choice == "1":
-            text = input("Note text: ")
-            add_note(notes, text)
-        elif choice == "2":
-            list_notes(notes)
-        elif choice == "3":
-            index = input("Note number to delete: ")
-            delete_note(notes, index)
-        elif choice == "4":
-            print("Bye!")
-            break
-        else:
-            print("Invalid option, try again.")
-
+    command = sys.argv[1].lower()
+    if command == "add" and len(sys.argv) > 2:
+        title = " ".join(sys.argv[2:])
+        add_task(title)
+    elif command == "list":
+        list_tasks()
+    else:
+        print("Unknown or incomplete command.")
 
 if __name__ == "__main__":
     main()
