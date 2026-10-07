@@ -11,7 +11,7 @@ def add_note(notes, text):
 
 def list_notes(notes):
     if not notes:
-        print("No notes yet.")
+        print("No notes yet.$$")
         return
     for i, note in enumerate(notes, start=1):
         print(f"{i}. {note}")
